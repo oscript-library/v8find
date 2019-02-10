@@ -1,21 +1,31 @@
-# oscript-coverage
+# v8find
 
-[![Stars](https://img.shields.io/github/stars/khorevaa/oscript-coverage.svg?label=Github%20%E2%98%85&a)](https://github.com/khorevaa/oscript-coverage/stargazers)
-[![Release](https://img.shields.io/github/tag/khorevaa/oscript-coverage.svg?label=Last%20release&a)](https://github.com/khorevaa/oscript-coverage/releases)
-[![Открытый чат проекта https://gitter.im/EvilBeaver/oscript-library](https://badges.gitter.im/khorevaa/oscript-coverage.png)](https://gitter.im/EvilBeaver/oscript-library)
+[![Stars](https://img.shields.io/github/stars/khorevaa/v8find.svg?label=Github%20%E2%98%85&a)](https://github.com/khorevaa/v8find/stargazers)
+[![Release](https://img.shields.io/github/tag/khorevaa/v8find.svg?label=Last%20release&a)](https://github.com/khorevaa/v8find/releases)
+[![Открытый чат проекта https://gitter.im/EvilBeaver/oscript-library](https://badges.gitter.im/khorevaa/v8find.png)](https://gitter.im/EvilBeaver/oscript-library)
 
-[![Build Status](https://travis-ci.org/khorevaa/oscript-coverage.svg?branch=master)](https://travis-ci.org/khorevaa/oscript-coverage)
-[![Coverage Status](https://coveralls.io/repos/github/khorevaa/oscript-coverage/badge.svg?branch=master)](https://coveralls.io/github/khorevaa/oscript-coverage?branch=master)
+[![Build Status](https://travis-ci.org/khorevaa/v8find.svg?branch=master)](https://travis-ci.org/khorevaa/v8find)
+[![Coverage Status](https://coveralls.io/repos/github/khorevaa/v8find/badge.svg?branch=master)](https://coveralls.io/github/khorevaa/v8find?branch=master)
 
-# Библиотека для xxx
+# Библиотека для поиска установленных версий платформы 1С
+
+Данная библиотека предназначена для поиска установленных версий платформы 1С в различных каталогах
 
 ## Возможности
 
+* Поиск конкретной версии платформы для примера `8.3.13.1513`
+* Поиск версии платформы по маске для примера `8.3.13`, `8.3`
+* Получение путей к приложениям платформы
+    * Приложение - `1cv8`
+    * Тонкий клиент - `1cv8c`
+    * Утилита `rac`  для администрирования кластера 1С - `rac`
+* Получение списка всех установленных версий платформы 1С
+* Получение версии платформы с учетом разрядности `x64` или `x86`
 
 ## Установка
 
 Для установки необходимо:
-* Скачать файл coverage.ospx из раздела [releases](https://github.com/khorevaa/oscript-coverage/releases)
+* Скачать файл v8find.ospx из раздела [releases](https://github.com/khorevaa/v8find/releases)
 * Воспользоваться командой:
 
 ```
@@ -29,9 +39,32 @@ opm install coverage
 
 ## Пример работы
 
-```
+* Получение пути к приложению 1С
 
-```
+    ```bsl
+
+        ПутьКПредприятию_x86 = Платформа1С.ПутьКПредприятию("8.3.13.1513", РазрядностьПлатформы.x86);
+        ПутьКПредприятию_x64 = Платформа1С.ПутьКПредприятию("8.3.13", РазрядностьПлатформы.x64);
+        
+    ```
+
+* Получение пути к тонкому клиенту 1С
+
+    ```bsl
+
+        ПутьКТонкомуКлиенту = Платформа1С.ПутьКТонкомуКлиенту("8.3.13");
+        ПутьКТонкомуКлиенту = Платформа1С.ПутьКТонкомуКлиенту("8.3");
+        
+    ```
+
+* Получение пути к утилите `rac`
+
+    ```bsl
+
+        ПутьКRAC = Платформа1С.ПутьКRAC("8.3.13");
+        ПутьКRAC = Платформа1С.ПутьКRAC("8.3");
+        
+    ```
 
 ## Публичный интерфейс
 
