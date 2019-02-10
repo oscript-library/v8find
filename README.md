@@ -34,7 +34,7 @@ opm install -f <ПутьКФайлу>
 или установить с хаба пакетов
 
 ```
-opm install coverage
+opm install v8find
 ```
 
 ## Пример работы
