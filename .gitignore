@@ -1,0 +1,9 @@
+# Зависимости OScript
+oscript_modules/
+
+# Артефакты сборки
+*.ospx
+
+# Отчёты тестов
+tests.xml
+bdd-log.xml
